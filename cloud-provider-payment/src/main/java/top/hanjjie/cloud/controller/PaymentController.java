@@ -1,6 +1,7 @@
 package top.hanjjie.cloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import top.hanjjie.cloud.entities.Payment;
 import top.hanjjie.cloud.service.PaymentService;
@@ -19,7 +20,8 @@ public class PaymentController {
     @PostMapping("/payment")
     public HttpResponse payment(@RequestBody Payment payment) {
         try {
-//            if (payment == null || StringUtils)
+            if (payment == null || StringUtils.isBlank(payment.getSerial()))
+                return HttpResponse.paramsError().setData("id is serial");
             int result = paymentService.add(payment);
             log.info("========== 插入订单结果：" + result);
             return HttpResponse.success().setData(result);
