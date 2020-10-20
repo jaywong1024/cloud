@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/api")
 public class PaymentController {
 
     @Resource
@@ -21,7 +21,7 @@ public class PaymentController {
     public HttpResponse payment(@RequestBody Payment payment) {
         try {
             if (payment == null || StringUtils.isBlank(payment.getSerial()))
-                return HttpResponse.paramsError().setData("id is serial");
+                return HttpResponse.paramsError().setData("serial is required");
             int result = paymentService.add(payment);
             log.info("========== 插入订单结果：" + result);
             return HttpResponse.success().setData(result);
