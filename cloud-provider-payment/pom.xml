@@ -12,6 +12,11 @@
     <artifactId>cloud-provider-payment</artifactId>
 
     <dependencies>
+        <!-- eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>top.hanjjie.cloud</groupId>
             <artifactId>cloud-api</artifactId>

@@ -9,9 +9,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://@host@:3306/cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 12345
+    url: jdbc:mysql://@database.host@:@database.port@/cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: @database.username@
+    password: @database.password@
     druid:
       initial-size: 5
       max-active: 10
@@ -25,3 +25,11 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: top.hanjjie.cloud.entities
+
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://@euruka.host@:@euruka.port@/eureka/

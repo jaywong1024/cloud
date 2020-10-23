@@ -22,14 +22,28 @@
         <profile>
             <id>company</id>
             <properties>
-                <host>192.168.1.198</host>
+                <!-- 数据库 -->
+                <database.host>192.168.1.198</database.host>
+                <database.port>3306</database.port>
+                <database.username>root</database.username>
+                <database.password>12345</database.password>
+                <!-- 注册中心 eureka -->
+                <euruka.host>localhost</euruka.host>
+                <euruka.port>7001</euruka.port>
             </properties>
         </profile>
         <!-- 家 -->
         <profile>
             <id>home</id>
             <properties>
-                <host>192.168.0.198</host>
+                <!-- 数据库 -->
+                <database.host>192.168.1.198</database.host>
+                <database.port>3306</database.port>
+                <database.username>root</database.username>
+                <database.password>12345</database.password>
+                <!-- 注册中心 eureka -->
+                <euruka.host>localhost</euruka.host>
+                <euruka.port>7001</euruka.port>
             </properties>
         </profile>
     </profiles>
