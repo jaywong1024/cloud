@@ -63,6 +63,9 @@
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <spring-cloud.alibaba.version>2.1.0.RELEASE</spring-cloud.alibaba.version>
         <lang3.version>3.10</lang3.version>
+        <hutool.version>5.1.0</hutool.version>
+        <hutool.version>5.1.0</hutool.version>
+        <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
     </properties>
 
     <!-- 子模块依赖管理 -->
@@ -138,7 +141,13 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.1.0</version>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- validator -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

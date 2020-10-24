@@ -1,6 +1,7 @@
 package top.hanjjie.cloud.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.hanjjie.cloud.dto.PaymentDTO;
 import top.hanjjie.cloud.entities.Payment;
 
 /**
@@ -11,11 +12,11 @@ public interface PaymentDAO {
     /**
      * 添加订单
      */
-    int add(Payment payment);
+    int add(PaymentDTO paymentDTO);
 
     /**
      * 获取订单
      */
-    Payment get(@Param("id") Long id);
+    Payment get(@Param("orderId") Long orderId);
 
 }

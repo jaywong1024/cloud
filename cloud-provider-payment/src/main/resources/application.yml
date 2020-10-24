@@ -21,10 +21,13 @@ spring:
       test-while-idle: true
       test-on-return: false
       validation-query: SELECT 1
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 # 持久化框架
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: top.hanjjie.cloud.entities
+  type-aliases-package: top.hanjjie.cloud.entities;top.hanjjie.cloud.dto
 
 # eureka 客户端配置
 eureka:

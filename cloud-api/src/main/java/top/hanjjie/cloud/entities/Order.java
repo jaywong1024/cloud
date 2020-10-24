@@ -5,23 +5,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 支付实体类
+ * 订单实体类
  */
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment implements Serializable {
+public class Order {
 
     private Long id;
-    private Long orderId;
-    private Integer type;
+    private Integer status;
     private BigDecimal money;
+    private BigDecimal discount;
     private Date time;
+    private String remark;
 
 }

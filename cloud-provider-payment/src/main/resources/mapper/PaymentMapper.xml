@@ -3,16 +3,20 @@
 
 <mapper namespace="top.hanjjie.cloud.dao.PaymentDAO">
 
-    <insert id="add" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO payment (serial) VALUES (#{serial});
+    <insert id="add" parameterType="PaymentDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO payment(order_id, type, money, time)
+        VALUES (#{orderId}, #{paymentType}, IFNULL((SELECT IFNULL(money, 0) - IFNULL(discount, 0) FROM `order` WHERE id = #{orderId}), 0), now());
     </insert>
 
     <resultMap id="PaymentMap" type="top.hanjjie.cloud.entities.Payment">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <id column="serial" property="serial" jdbcType="VARCHAR"/>
+        <id column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <id column="type" property="type" jdbcType="INTEGER"/>
+        <id column="money" property="money" jdbcType="DECIMAL"/>
+        <id column="time" property="time" jdbcType="TIMESTAMP"/>
     </resultMap>
     <select id="get" parameterType="Long" resultMap="PaymentMap">
-        SELECT * FROM payment WHERE id = #{id};
+        SELECT * FROM payment WHERE order_id = #{orderId};
     </select>
 
 </mapper>

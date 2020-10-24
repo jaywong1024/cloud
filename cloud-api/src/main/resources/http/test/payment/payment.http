@@ -9,6 +9,6 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"serial":"嘤嘤嘤"}
+{"orderId":1, "paymentType": 1}
 
 ###
