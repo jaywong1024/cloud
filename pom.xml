@@ -14,6 +14,7 @@
         <module>cloud-provider-payment</module>
         <module>cloud-api</module>
         <module>cloud-eureka-server</module>
+        <module>cloud-provider-order</module>
     </modules>
 
     <!-- 环境管理 -->
