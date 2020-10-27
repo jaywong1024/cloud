@@ -17,39 +17,7 @@
         <module>cloud-provider-order</module>
     </modules>
 
-    <!-- 环境管理 -->
-    <profiles>
-        <!-- 公司 -->
-        <profile>
-            <id>company</id>
-            <properties>
-                <!-- 数据库 -->
-                <database.host>192.168.1.198</database.host>
-                <database.port>3306</database.port>
-                <database.username>root</database.username>
-                <database.password>12345</database.password>
-                <!-- 注册中心 eureka -->
-                <euruka.host>localhost</euruka.host>
-                <euruka.port>7001</euruka.port>
-            </properties>
-        </profile>
-        <!-- 家 -->
-        <profile>
-            <id>home</id>
-            <properties>
-                <!-- 数据库 -->
-                <database.host>192.168.1.198</database.host>
-                <database.port>3306</database.port>
-                <database.username>root</database.username>
-                <database.password>12345</database.password>
-                <!-- 注册中心 eureka -->
-                <euruka.host>localhost</euruka.host>
-                <euruka.port>7001</euruka.port>
-            </properties>
-        </profile>
-    </profiles>
-
-    <!-- 统一 jar 包管理 -->
+    <!-- 配置管理 -->
     <properties>
         <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -67,7 +35,45 @@
         <hutool.version>5.1.0</hutool.version>
         <hutool.version>5.1.0</hutool.version>
         <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
+        <!-- 虚拟机地址 -->
+        <vm1.host>192.168.0.198</vm1.host>
+        <vm2.host>192.168.0.200</vm2.host>
     </properties>
+
+    <!-- 环境管理 -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 数据库 -->
+                <database.host>@vm1.host@</database.host>
+                <database.port>3306</database.port>
+                <database.username>root</database.username>
+                <database.password>12345</database.password>
+                <!-- 注册中心 eureka 客户端注册地址 -->
+                <eureka.port>7001</eureka.port>
+                <eureka.zone>http://@vm1.host@:@eureka.port@/eureka,http://@vm2.host@:@eureka.port@/eureka</eureka.zone>
+            </properties>
+        </profile>
+        <profile>
+            <id>eureka-198</id>
+            <properties>
+                <eureka.hostname>eureka198</eureka.hostname>
+                <register.with.eureka>true</register.with.eureka>
+                <fetch.registry>true</fetch.registry>
+                <registry.with.zone>http://@vm2.host@:@eureka.port@/eureka/</registry.with.zone>
+            </properties>
+        </profile>
+        <profile>
+            <id>eureka-200</id>
+            <properties>
+                <eureka.hostname>eureka200</eureka.hostname>
+                <register.with.eureka>true</register.with.eureka>
+                <fetch.registry>true</fetch.registry>
+                <registry.with.zone>http://@vm1.host@:@eureka.port@/eureka/</registry.with.zone>
+            </properties>
+        </profile>
+    </profiles>
 
     <!-- 子模块依赖管理 -->
     <dependencyManagement>
