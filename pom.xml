@@ -18,10 +18,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cloud-provider-payment</module>
+        <module>cloud-provider-goods</module>
         <module>cloud-api</module>
         <module>cloud-eureka-server</module>
-        <module>cloud-provider-order</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -194,13 +193,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <!-- 处理 application.yml 中 @xxx@ 报错 -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
     </build>
 
 </project>
