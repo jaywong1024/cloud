@@ -4,7 +4,7 @@ server:
 spring:
   # 应用信息
   application:
-    name: cloud-provider-goods
+    name: @module.provider.goods@
   # 数据库
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -32,8 +32,8 @@ mybatis:
 # eureka 客户端配置
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
     service-url:
       defaultZone: @eureka.zone@
 

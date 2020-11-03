@@ -18,13 +18,22 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cloud-provider-goods</module>
-        <module>cloud-api</module>
-        <module>cloud-eureka-server</module>
+        <module>${module.provider.goods}</module>
+        <module>${module.common.api}</module>
+        <module>${module.registry.eureka}</module>
+        <module>${module.consumer.client}</module>
     </modules>
 
     <!-- 配置管理 -->
     <properties>
+        <!-- 通用模块 -->
+        <module.common.api>cloud-api</module.common.api>
+        <!-- 生产模块 -->
+        <module.provider.goods>cloud-provider-goods</module.provider.goods>
+        <!-- 消费模块 -->
+        <module.consumer.client>cloud-consumer-client</module.consumer.client>
+        <!-- 注册中心 -->
+        <module.registry.eureka>cloud-eureka-server</module.registry.eureka>
         <!-- 依赖版本 -->
         <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>

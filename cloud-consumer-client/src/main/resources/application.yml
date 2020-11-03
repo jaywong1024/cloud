@@ -1,0 +1,27 @@
+# 端口 80
+server:
+  port: 80
+spring:
+  # 应用信息
+  application:
+    name: @module.consumer.client@
+
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
+    service-url:
+      defaultZone: @eureka.zone@
+
+info:
+  app:
+    name: client
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
+provider:
+  goods: http://@module.provider.goods@/api/goods/

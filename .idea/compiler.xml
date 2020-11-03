@@ -10,12 +10,18 @@
         <module name="cloud-api" />
         <module name="cloud-provider-goods" />
         <module name="cloud-eureka-server" />
+        <module name="cloud-consumer-client" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-provider-order" target="1.8" />
+      <module name="cloud-provider-payment" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cloud-api" options="-parameters" />
+      <module name="cloud-consumer-client" options="-parameters" />
       <module name="cloud-eureka-server" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
     </option>

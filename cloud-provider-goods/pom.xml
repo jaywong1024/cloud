@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-provider-goods</artifactId>
+    <artifactId>${module.provider.goods}</artifactId>
 
     <dependencies>
         <!-- eureka -->
@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>top.hanjjie.cloud</groupId>
-            <artifactId>cloud-api</artifactId>
+            <artifactId>${module.common.api}</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
