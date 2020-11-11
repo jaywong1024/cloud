@@ -45,3 +45,16 @@ info:
   bulid:
     artifactId: @project.artifactId@
     version: @project.version@
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"
+
