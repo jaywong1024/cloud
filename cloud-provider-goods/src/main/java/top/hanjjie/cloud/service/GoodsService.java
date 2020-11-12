@@ -12,7 +12,7 @@ public interface GoodsService {
     /**
      * 添加商品
      */
-    Integer add(GoodsDTO goodsDTO);
+    GoodsDTO add(GoodsDTO goodsDTO);
 
     /**
      * 获取商品

@@ -6,12 +6,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import top.hanjjie.cloud.dto.GoodsDTO;
-import top.hanjjie.cloud.utils.HttpResponse;
+import top.hanjjie.cloud.entities.Goods;
+import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.Objects;
-import java.util.Optional;
 
 @RequestMapping("/api")
 @RestController
@@ -28,35 +27,20 @@ public class ClientController {
      * 添加一条商品信息
      */
     @PostMapping("/goods")
-    public HttpResponse goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        try {
-            if (bindingResult.hasErrors()) {
-                String defaultMessage = Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage();
-                log.error("========== 添加一条商品信息.参数错误：" + defaultMessage);
-                return HttpResponse.paramsError().setData(defaultMessage);
-            }
-            return restTemplate.postForObject(goods, goodsDTO, HttpResponse.class);
-        } catch (Exception e) {
-            log.error("========== 添加一条商品信息.异常：" + e);
-            return HttpResponse.serverError().setData(e);
+    public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+//            TODO 等待编写统一的参数异常管理
         }
+        return restTemplate.postForObject(goods, goodsDTO, ResultBean.class);
     }
 
     /**
      * 获取一条商品信息
      */
     @GetMapping("/goods/{id}")
-    public HttpResponse goods(@PathVariable("id") Long id) {
-        try {
-            if (!Optional.ofNullable(id).isPresent()) {
-                log.error("========== 获取一条商品信息.参数错误：商品id不能为空");
-                return HttpResponse.paramsError().setData("商品id不能为空");
-            }
-            return restTemplate.getForObject(goods + id, HttpResponse.class);
-        } catch (Exception e) {
-            log.error("========== 获取一条商品信息.异常：" + e);
-            return HttpResponse.serverError().setData(e);
-        }
+    public ResultBean<Goods> goods(@PathVariable("id") Long id) {
+//        TODO 等待编写统一的参数异常管理
+        return restTemplate.getForObject(goods + id, ResultBean.class);
     }
 
 }

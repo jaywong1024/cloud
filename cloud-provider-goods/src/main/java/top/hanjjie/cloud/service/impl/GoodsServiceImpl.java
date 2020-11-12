@@ -15,8 +15,9 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsDAO goodsDAO;
 
     @Override
-    public Integer add(GoodsDTO goodsDTO) {
-        return goodsDAO.add(goodsDTO);
+    public GoodsDTO add(GoodsDTO goodsDTO) {
+        goodsDAO.add(goodsDTO);
+        return goodsDTO;
     }
 
     @Override

@@ -5,7 +5,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.hanjjie.cloud.utils.HttpResponse;
+import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -23,16 +23,10 @@ public class DiscoveryController {
      * 发现服务信息
      */
     @GetMapping("/discovery")
-    public HttpResponse discovery() {
-        try {
-            Map<String, Object> result = new HashMap<>();
-            discoveryClient.getServices().forEach(s -> result.put(s, discoveryClient.getInstances(s)));
-            log.info("========== 发现服务信息.成功：" + result);
-            return HttpResponse.success().setData(result);
-        } catch (Exception e) {
-            log.error("========== 发现服务信息.异常：" + e);
-            return HttpResponse.serverError().setData(e);
-        }
+    public ResultBean<Map<String, Object>> discovery() {
+        Map<String, Object> result = new HashMap<>();
+        discoveryClient.getServices().forEach(s -> result.put(s, discoveryClient.getInstances(s)));
+        return new ResultBean<>(result);
     }
 
 }
