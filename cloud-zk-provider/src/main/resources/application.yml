@@ -1,0 +1,32 @@
+server:
+  port: @provider.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.zk.provider@
+  # 注册中心 zookeeper 配置
+  cloud:
+    zookeeper:
+      connect-string: @vm1.host@:@zk.port@
+
+info:
+  app:
+    name: zk-privider
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"
+
