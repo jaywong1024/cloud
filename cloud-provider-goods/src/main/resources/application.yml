@@ -1,6 +1,5 @@
-# 端口 8081
 server:
-  port: 8081
+  port: @provider.port@
 spring:
   # 应用信息
   application:
