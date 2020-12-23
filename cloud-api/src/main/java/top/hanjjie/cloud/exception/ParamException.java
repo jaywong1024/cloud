@@ -1,5 +1,8 @@
 package top.hanjjie.cloud.exception;
 
+/**
+ * 参数异常
+ */
 public class ParamException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
+import top.hanjjie.cloud.exception.ParamException;
 import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.Objects;
+import java.util.Optional;
 
 @RequestMapping("/api")
 @RestController
@@ -28,9 +31,7 @@ public class ClientController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-//            TODO 等待编写统一的参数异常管理
-        }
+        if (bindingResult.hasErrors()) throw new ParamException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         return restTemplate.postForObject(goods, goodsDTO, ResultBean.class);
     }
 
@@ -39,8 +40,7 @@ public class ClientController {
      */
     @GetMapping("/goods/{id}")
     public ResultBean<Goods> goods(@PathVariable("id") Long id) {
-//        TODO 等待编写统一的参数异常管理
-        return restTemplate.getForObject(goods + id, ResultBean.class);
+        return restTemplate.getForObject(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamException("id is required")), ResultBean.class);
     }
 
 }
