@@ -1,4 +1,0 @@
-### 发现服务信息
-GET http://localhost/app/discovery
-Accept: */*
-Cache-Control: no-cache
