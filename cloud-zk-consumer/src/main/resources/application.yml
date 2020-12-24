@@ -1,0 +1,14 @@
+server:
+  port: @consumer.port@
+
+spring:
+  # 应用信息
+  application:
+    name: @module.zk.consumer@
+  # 注册中心 zookeeper 配置
+  cloud:
+    zookeeper:
+      connect-string: @vm1.host@:@zk.port@
+
+provider:
+  zk: http://@module.zk.provider@

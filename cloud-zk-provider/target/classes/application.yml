@@ -1,0 +1,32 @@
+server:
+  port: 8001
+spring:
+  # 应用信息
+  application:
+    name: cloud-zk-provider
+  # 注册中心 zookeeper 配置
+  cloud:
+    zookeeper:
+      connect-string: 192.168.0.198:2181
+
+info:
+  app:
+    name: zk-privider
+  company:
+    name: top.hanjjie.cloud
+  bulid:
+    artifactId: cloud-zk-provider
+    version: 1.0-SNAPSHOT
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"
+

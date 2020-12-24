@@ -23,6 +23,7 @@
         <module>${module.registry.eureka}</module>
         <module>${module.consumer.client}</module>
         <module>${module.zk.provider}</module>
+        <module>${module.zk.consumer}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -38,6 +39,7 @@
         <!-- 消费模块 -->
         <consumer.port>80</consumer.port>
         <module.consumer.client>cloud-consumer-client</module.consumer.client>
+        <module.zk.consumer>cloud-zk-consumer</module.zk.consumer>
 
         <!-- 注册中心 eureka -->
         <eureka.port>7001</eureka.port>

@@ -1,0 +1,9 @@
+### 关闭 goods 服务
+POST http://localhost:8081/actuator/shutdown
+Accept: */*
+Cache-Control: no-cache
+### 查看监控管理接口
+GET http://localhost:8081/actuator
+Accept: */*
+Cache-Control: no-cache
+###
