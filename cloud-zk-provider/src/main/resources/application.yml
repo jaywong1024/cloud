@@ -11,7 +11,7 @@ spring:
 
 info:
   app:
-    name: zk-privider
+    name: @module.zk.provider@
   company:
     name: @project.groupId@
   bulid:

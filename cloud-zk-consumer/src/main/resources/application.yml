@@ -10,5 +10,14 @@ spring:
     zookeeper:
       connect-string: @vm1.host@:@zk.port@
 
+info:
+  app:
+    name: @module.zk.consumer@
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
 provider:
   zk: http://@module.zk.provider@

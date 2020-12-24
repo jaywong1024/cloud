@@ -38,7 +38,7 @@ eureka:
 
 info:
   app:
-    name: goods
+    name: @module.provider.goods@
   company:
     name: @project.groupId@
   bulid:

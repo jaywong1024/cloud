@@ -16,7 +16,7 @@ eureka:
 
 info:
   app:
-    name: client
+    name: @module.consumer.client@
   company:
     name: @project.groupId@
   bulid:
