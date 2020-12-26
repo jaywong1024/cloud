@@ -24,6 +24,7 @@
         <module>${module.consumer.client}</module>
         <module>${module.zk.provider}</module>
         <module>${module.zk.consumer}</module>
+        <module>${module.consul.provider}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -35,6 +36,7 @@
         <provider.port>8001</provider.port>
         <module.provider.goods>cloud-provider-goods</module.provider.goods>
         <module.zk.provider>cloud-zk-provider</module.zk.provider>
+        <module.consul.provider>cloud-consul-provider</module.consul.provider>
 
         <!-- 消费模块 -->
         <consumer.port>80</consumer.port>
@@ -49,6 +51,9 @@
 
         <!-- zookeeper 配置 -->
         <zk.port>2181</zk.port>
+
+        <!-- consul 配置 -->
+        <consul.port>8500</consul.port>
 
         <!-- 依赖版本 -->
         <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>

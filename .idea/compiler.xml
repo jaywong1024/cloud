@@ -12,6 +12,7 @@
         <module name="cloud-api" />
         <module name="cloud-consumer-client" />
         <module name="cloud-eureka-server" />
+        <module name="cloud-consul-provider" />
         <module name="cloud-zk-provider" />
       </profile>
     </annotationProcessing>
@@ -23,6 +24,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cloud-api" options="-parameters" />
+      <module name="cloud-consul-provider" options="-parameters" />
       <module name="cloud-consumer-client" options="-parameters" />
       <module name="cloud-eureka-server" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
