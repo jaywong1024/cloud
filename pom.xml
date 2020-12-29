@@ -75,6 +75,7 @@
         <hutool.version>5.1.0</hutool.version>
         <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
         <zookeeper.version>3.6.1</zookeeper.version>
+        <fastjson.version>1.2.75</fastjson.version>
     </properties>
 
     <!-- 环境管理 -->
@@ -126,6 +127,11 @@
     <!-- 子模块依赖管理 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <!-- zookeeper -->
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
