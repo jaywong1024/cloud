@@ -12,7 +12,7 @@ Content-Type: application/json
 {"name": "MacBook Pro 15' 2017", "description": "马克布克菠萝-15寸，2017款", "price": 15400}
 
 ### 客户端测试-获取商品信息（轮询访问 goods 服务）
-GET http://localhost/api/goods/1
+GET http://localhost/api/goods/4
 Accept: */*
 Cache-Control: no-cache
 
@@ -23,5 +23,18 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 {"name": "iPhone Xr", "description": "萌萌哒的 XR 酱", "price": 4299}
+
+### 客户端测试-获取商品信息（轮询访问 goods 服务，使用 restTemplate.exchange() 方法）
+GET http://localhost/api/goodsForEntity/4
+Accept: */*
+Cache-Control: no-cache
+
+### 客户端测试-添加商品信息（轮询访问 goods 服务，使用 restTemplate.exchange() 方法）
+POST http://localhost/api/goodsForEntity
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "小米11", "description": "环保版和套装版都是3999元噢", "price": 3999}
 
 ###
