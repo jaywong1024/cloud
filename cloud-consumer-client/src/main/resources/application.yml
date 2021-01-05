@@ -25,3 +25,8 @@ info:
 
 provider:
   goods: http://@module.provider.goods@/api/goods/
+
+# 配置 cloud-provider-goods 服务的负载均衡策略
+@module.provider.goods@:
+   ribbon:
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
