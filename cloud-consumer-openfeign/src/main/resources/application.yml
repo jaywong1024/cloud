@@ -25,3 +25,10 @@ info:
 
 provider:
   goods: @module.provider.goods@
+
+# 配置请求超时
+openfeign:
+  # 读取资源所用的时间
+  read-timeout: 3000
+  # 建立连接所使用的时间
+  connection-timeout: 3000
