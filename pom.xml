@@ -26,6 +26,7 @@
         <module>${module.zk.consumer}</module>
         <module>${module.consul.provider}</module>
         <module>${module.consul.consumer}</module>
+        <module>${module.consumer.openfeign}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -44,6 +45,7 @@
         <module.consumer.client>cloud-consumer-client</module.consumer.client>
         <module.zk.consumer>cloud-zk-consumer</module.zk.consumer>
         <module.consul.consumer>cloud-consul-consumer</module.consul.consumer>
+        <module.consumer.openfeign>cloud-consumer-openfeign</module.consumer.openfeign>
 
         <!-- 注册中心 eureka -->
         <eureka.port>7001</eureka.port>

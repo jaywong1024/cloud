@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-zk-consumer" />
+        <module name="cloud-consumer-openfeign" />
         <module name="cloud-provider-goods" />
         <module name="cloud-api" />
         <module name="cloud-consumer-client" />
@@ -28,6 +29,7 @@
       <module name="cloud-consul-consumer" options="-parameters" />
       <module name="cloud-consul-provider" options="-parameters" />
       <module name="cloud-consumer-client" options="-parameters" />
+      <module name="cloud-consumer-openfeign" options="-parameters" />
       <module name="cloud-eureka-server" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
       <module name="cloud-zk-consumer" options="-parameters" />

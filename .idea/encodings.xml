@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/cloud-consul-consumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-consul-provider/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-consumer-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumer-openfeign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-provider-goods/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-zk-consumer/src/main/java" charset="UTF-8" />
