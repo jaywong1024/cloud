@@ -34,7 +34,9 @@ public class CustomRule extends AbstractLoadBalancerRule {
         int index = this.getIndexBySpinLockAndCAS(reachableServersSize);
         log.info("实际调用的服务下标为：{}", index);
         // 3.返回服务
-        return reachableServers.get(index);
+        Server server = reachableServers.get(index);
+        log.info("实际调用服务地址：{}", server.getHostPort());
+        return server;
     }
 
     /**
@@ -47,7 +49,7 @@ public class CustomRule extends AbstractLoadBalancerRule {
         do {
             current = this.requestCount.get();
             next = current >= Integer.MAX_VALUE ? 0 : current + 1;
-        } while (requestCount.compareAndSet(current, next));
+        } while (!requestCount.compareAndSet(current, next));
         return current % reachableServersSize;
     }
 
