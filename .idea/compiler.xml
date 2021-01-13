@@ -13,6 +13,7 @@
         <module name="cloud-api" />
         <module name="cloud-consumer-client" />
         <module name="cloud-consul-consumer" />
+        <module name="cloud-hystrix-provider" />
         <module name="cloud-eureka-server" />
         <module name="cloud-consul-provider" />
         <module name="cloud-zk-provider" />
@@ -31,6 +32,7 @@
       <module name="cloud-consumer-client" options="-parameters" />
       <module name="cloud-consumer-openfeign" options="-parameters" />
       <module name="cloud-eureka-server" options="-parameters" />
+      <module name="cloud-hystrix-provider" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
       <module name="cloud-zk-consumer" options="-parameters" />
       <module name="cloud-zk-provider" options="-parameters" />
