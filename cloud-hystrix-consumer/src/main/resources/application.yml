@@ -24,16 +24,16 @@ info:
     version: @project.version@
 
 provider:
-  goods: @module.provider.goods@
+  hystrix-provider: @module.hystrix.provider@
 
 
 openfeign:
   # 配置超时
   timeout:
     # 读取资源所用的时间
-    read: 3000
+    read: 1000
     # 建立连接所使用的时间
-    connection: 3000
+    connection: 1000
   # 配置日志
   log:
     # openfeign 日志级别
