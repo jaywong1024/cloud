@@ -1,0 +1,50 @@
+# 端口 80
+server:
+  port: @consumer.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.hystrix.consumer@
+
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
+    service-url:
+      defaultZone: @eureka.zone@
+
+info:
+  app:
+    name: @module.hystrix.consumer@
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
+provider:
+  goods: @module.provider.goods@
+
+
+openfeign:
+  # 配置超时
+  timeout:
+    # 读取资源所用的时间
+    read: 3000
+    # 建立连接所使用的时间
+    connection: 3000
+  # 配置日志
+  log:
+    # openfeign 日志级别
+    # 1.NONE:     默认的，不显示任何日志
+    # 2.BASIC:    仅记录请求方法、URL、响应状态码及执行时间
+    # 3.HEADERS:  除了BASIC中定义的信息之外，还有请求和响应的头信息
+    # 4.FULL:     除了 HEADERS 中定义的信息之外，还有请求和响应的正文及元数据
+    level: FULL
+
+
+logging:
+  level:
+    # 以 debug 模式监控 OpGoodsService
+    top.hanjjie.cloud.service.OpGoodsService: debug

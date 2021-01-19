@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @RestController
 @RequestMapping("/api/hystrix")
-public class HystrixController {
+public class HystrixProviderController {
 
     /**
      * 获取当前线程名称

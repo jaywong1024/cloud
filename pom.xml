@@ -28,6 +28,7 @@
         <module>${module.consul.consumer}</module>
         <module>${module.consumer.openfeign}</module>
         <module>${module.hystrix.provider}</module>
+        <module>${module.hystrix.consumer}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -48,6 +49,7 @@
         <module.zk.consumer>cloud-zk-consumer</module.zk.consumer>
         <module.consul.consumer>cloud-consul-consumer</module.consul.consumer>
         <module.consumer.openfeign>cloud-consumer-openfeign</module.consumer.openfeign>
+        <module.hystrix.consumer>cloud-hystrix-consumer</module.hystrix.consumer>
 
         <!-- 注册中心 eureka -->
         <eureka.port>7001</eureka.port>
