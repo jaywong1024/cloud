@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
-import top.hanjjie.cloud.exception.ParamException;
+import top.hanjjie.cloud.exception.ParamsException;
 import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;
@@ -40,7 +40,7 @@ public class ClientController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         return restTemplate.postForObject(goods, goodsDTO, ResultBean.class);
     }
 
@@ -49,7 +49,7 @@ public class ClientController {
      */
     @PostMapping("/goodsForEntity")
     public ResultBean<GoodsDTO> goodsForEntity(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         ResponseEntity<ResultBean<GoodsDTO>> goodsForEntity = restTemplate.exchange(goods, HttpMethod.POST, new HttpEntity<>(goodsDTO, POST_HEADERS), new ParameterizedTypeReference<ResultBean<GoodsDTO>>() {});
         log.info("forEntity:{}", goodsForEntity);
         if (goodsForEntity.getStatusCode().is2xxSuccessful()) return goodsForEntity.getBody();
@@ -61,7 +61,7 @@ public class ClientController {
      */
     @GetMapping("/goods/{id}")
     public ResultBean<Goods> goods(@PathVariable("id") Long id) {
-        return restTemplate.getForObject(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamException("id is required")), ResultBean.class);
+        return restTemplate.getForObject(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamsException("id is required")), ResultBean.class);
     }
 
     /**
@@ -69,7 +69,7 @@ public class ClientController {
      */
     @GetMapping("/goodsForEntity/{id}")
     public ResultBean<Goods> goodsForEntity(@PathVariable("id") Long id) {
-        ResponseEntity<ResultBean<Goods>> goodsForEntity = restTemplate.exchange(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamException("id is required")), HttpMethod.GET, new HttpEntity<>(null), new ParameterizedTypeReference<ResultBean<Goods>>() {});
+        ResponseEntity<ResultBean<Goods>> goodsForEntity = restTemplate.exchange(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamsException("id is required")), HttpMethod.GET, new HttpEntity<>(null), new ParameterizedTypeReference<ResultBean<Goods>>() {});
         log.info("forEntity:{}", goodsForEntity);
         if (goodsForEntity.getStatusCode().is2xxSuccessful()) return goodsForEntity.getBody();
         return new ResultBean<>("获取商品信息失败");

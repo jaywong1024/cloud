@@ -5,7 +5,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
-import top.hanjjie.cloud.exception.ParamException;
+import top.hanjjie.cloud.exception.ParamsException;
 import top.hanjjie.cloud.service.OpGoodsService;
 import top.hanjjie.cloud.utils.ResultBean;
 
@@ -29,7 +29,7 @@ public class OpenfeignController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         return opGoodsService.goods(goodsDTO);
     }
 

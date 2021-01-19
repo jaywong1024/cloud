@@ -5,7 +5,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
-import top.hanjjie.cloud.exception.ParamException;
+import top.hanjjie.cloud.exception.ParamsException;
 import top.hanjjie.cloud.service.GoodsService;
 import top.hanjjie.cloud.utils.ResultBean;
 
@@ -30,7 +30,7 @@ public class GoodsController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         return new ResultBean<>(goodsService.add(goodsDTO));
     }
 
@@ -40,7 +40,7 @@ public class GoodsController {
     @GetMapping("/goods/{id}")
     public ResultBean<Goods> goods(@PathVariable("id") Long id) {
         return new ResultBean<>(Optional.ofNullable(goodsService.get(
-                Optional.ofNullable(id).orElseThrow(() -> new ParamException("id is required")))).orElseGet(Goods::new));
+                Optional.ofNullable(id).orElseThrow(() -> new ParamsException("id is required")))).orElseGet(Goods::new));
     }
 
 }
