@@ -28,7 +28,7 @@ public class HystrixProviderController {
     /**
      * 获取当前线程名称（睡 3 秒）
      * 使用 Hystrix @HystrixCommand注解 进行服务降级
-     * 此线程运行时长超过 0.5秒 则调用下面的 timeoutFallback 回退方法
+     * 此线程运行时长超过 0.5秒 或 出现异常 则调用下面的 timeoutFallback 回退方法
      */
     @GetMapping("/timeout")
     @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
