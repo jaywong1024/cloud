@@ -52,6 +52,7 @@ public class HystrixProviderController {
         ResultBean<JSONObject> timeoutResultBean = new ResultBean<>();
         timeoutResultBean.setCode(ResultBean.TIMEOUT);
         timeoutResultBean.setMsg("获取当前线程名称（睡 3 秒），回退方法，返回连接超时");
+        timeoutResultBean.setData(new JSONObject().fluentPut("thread name", Thread.currentThread().getName()));
         return timeoutResultBean;
     }
 
