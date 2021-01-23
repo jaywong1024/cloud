@@ -28,7 +28,7 @@ public class HystrixProviderController {
     /**
      * 获取当前线程名称（睡 3 秒）
      * 使用 Hystrix @HystrixCommand注解 进行服务降级
-     * 此线程运行时长超过 0.5秒 或 出现异常 则调用下面的 timeoutFallback 回退方法
+     * 此线程运行时长超过 0.5秒 或 出现异常 则调用下面的 timeoutFallback 进行服务降级
      */
     @GetMapping("/timeout")
     @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
@@ -48,12 +48,12 @@ public class HystrixProviderController {
      * 获取当前线程名称（睡 3 秒），回退方法，返回连接超时
      */
     public ResultBean<JSONObject> timeoutFallback() {
-        log.error("获取当前线程名称（睡 3 秒），回退方法，返回连接超时");
-        ResultBean<JSONObject> timeoutResultBean = new ResultBean<>();
-        timeoutResultBean.setCode(ResultBean.TIMEOUT);
-        timeoutResultBean.setMsg("获取当前线程名称（睡 3 秒），回退方法，返回连接超时");
-        timeoutResultBean.setData(new JSONObject().fluentPut("thread name", Thread.currentThread().getName()));
-        return timeoutResultBean;
+        log.error("获取当前线程名称（睡 3 秒）超时活着出现异常，调用 timeoutFallback 方法进行服务降级");
+        ResultBean<JSONObject> resultBean = new ResultBean<>();
+        resultBean.setCode(ResultBean.FAIL);
+        resultBean.setMsg("获取当前线程名称（睡 3 秒）超时活着出现异常，调用 timeoutFallback 方法进行服务降级");
+        resultBean.setData(new JSONObject().fluentPut("thread name", Thread.currentThread().getName()));
+        return resultBean;
     }
 
     /**

@@ -19,7 +19,6 @@ public class ResultBean<T> {
      */
     public static final int SUCCESS = 200;
     public static final int NO_PERMISSION = 403;
-    public static final int TIMEOUT = 408;
     public static final int FAIL = 500;
 
     private int code = SUCCESS;
