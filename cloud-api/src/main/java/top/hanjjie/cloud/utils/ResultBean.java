@@ -15,10 +15,11 @@ public class ResultBean<T> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 成功、不允许、失败
+     * 成功、不允许、超时、失败
      */
     public static final int SUCCESS = 200;
     public static final int NO_PERMISSION = 403;
+    public static final int TIMEOUT = 408;
     public static final int FAIL = 500;
 
     private int code = SUCCESS;
