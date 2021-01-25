@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.hanjjie.cloud.config.OpenFeignConfig;
 import top.hanjjie.cloud.config.OpenFeignFallbackFactory;
@@ -31,9 +32,9 @@ public interface HystrixConsumerService {
     ResultBean<JSONObject> timeout();
 
     /**
-     * 获取当前线程名称（抛异常）
+     * 测试服务熔断
      */
-    @GetMapping("/error")
-    ResultBean<JSONObject> error();
+    @GetMapping("/circuit/breaker/{executeTime}")
+    ResultBean<JSONObject> circuitBreaker(@PathVariable("executeTime") Integer executeTime);
 
 }

@@ -3,6 +3,7 @@ package top.hanjjie.cloud.controller;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.hanjjie.cloud.service.HystrixConsumerService;
@@ -35,11 +36,11 @@ public class HystrixConsumerController {
     }
 
     /**
-     * 获取当前线程名称（抛异常）
+     * 测试服务熔断
      */
-    @GetMapping("/error")
-    public ResultBean<JSONObject> error() {
-        return hystrixConsumerService.error();
+    @GetMapping("/circuit/breaker/{executeTime}")
+    public ResultBean<JSONObject> circuitBreaker(@PathVariable("executeTime") Integer executeTime) {
+        return hystrixConsumerService.circuitBreaker(executeTime);
     }
 
 }

@@ -1,10 +1,12 @@
 package top.hanjjie.cloud.controller;
 
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.hanjjie.cloud.utils.ResultBean;
@@ -45,24 +47,45 @@ public class HystrixProviderController {
     }
 
     /**
-     * 获取当前线程名称（睡 3 秒），回退方法，返回连接超时
+     * 获取当前线程名称（睡 3 秒），回退方法
      */
     public ResultBean<JSONObject> timeoutFallback() {
-        log.error("获取当前线程名称（睡 3 秒）超时活着出现异常，调用 timeoutFallback 方法进行服务降级");
+        log.error("获取当前线程名称（睡 3 秒）超时 或者 出现异常，调用 timeoutFallback 方法进行服务降级");
         ResultBean<JSONObject> resultBean = new ResultBean<>();
         resultBean.setCode(ResultBean.FAIL);
-        resultBean.setMsg("获取当前线程名称（睡 3 秒）超时活着出现异常，调用 timeoutFallback 方法进行服务降级");
+        resultBean.setMsg("获取当前线程名称（睡 3 秒）超时 或者 出现异常，调用 timeoutFallback 方法进行服务降级");
         resultBean.setData(new JSONObject().fluentPut("thread name", Thread.currentThread().getName()));
         return resultBean;
     }
 
     /**
-     * 获取当前线程名称（抛异常）
+     * 测试服务熔断
+     * @param executeTime sleep() 执行时长
+     *
+     * execution.isolation.thread.timeoutInMilliseconds 线程执行时间阈值
+     * circuitBreakerFallback                           指定降级方法
+     * circuitBreaker.enable                            是否开启断路器功能
+     * circuitBreaker.requestVolumeThreshold            设置滚动窗口中将使断路器跳闸的最小请求数量
+     * circuitBreaker.sleepWindowInMilliseconds         断路器跳闸后，在此值的时间的内，Hystrix 会拒绝新的请求，只有过了这个时间断路器才会打开闸门
+     * circuitBreaker.errorThresholdPercentage          设置失败百分比的阈值。如果失败比率超过这个值，则断路器跳闸并且进入 Fallback 逻辑
+     *
+     * 设置总结：开启断路器，在 10 秒内 10 个请求中有 30% 出现异常或者执行超时（1.5秒），则触发 circuitBreakerFallback 方法作为降级方法
      */
-    @GetMapping("/error")
-    public ResultBean<JSONObject> error() {
-        log.info("获取当前线程名称（抛异常）");
-        return new ResultBean<>(new JSONObject().fluentPut("thread name", Thread.currentThread().getName()));
+    @GetMapping("/circuit/breaker/{executeTime}")
+    @HystrixCommand(fallbackMethod = "circuitBreakerFallback", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500"),
+            @HystrixProperty(name = "circuitBreaker.enable", value = "true"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "30")
+    })
+    public ResultBean<JSONObject> circuitBreaker(@PathVariable("executeTime") Integer executeTime) {
+        try {
+            TimeUnit.SECONDS.sleep(executeTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new ResultBean<>(new JSONObject().fluentPut("uuid", IdUtil.simpleUUID()));
     }
 
 }
