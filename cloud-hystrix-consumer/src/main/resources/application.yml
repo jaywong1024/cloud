@@ -48,3 +48,8 @@ logging:
   level:
     # 以 debug 模式监控 OpGoodsService
     top.hanjjie.cloud.service.OpGoodsService: debug
+
+# feign-hystrix 开启
+feign:
+  hystrix:
+    enabled: true
