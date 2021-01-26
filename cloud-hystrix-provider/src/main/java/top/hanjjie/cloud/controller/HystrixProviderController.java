@@ -34,7 +34,7 @@ public class HystrixProviderController {
      */
     @GetMapping("/timeout")
     @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
     })
     public ResultBean<JSONObject> timeout() {
         try {

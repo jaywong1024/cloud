@@ -7,15 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.hanjjie.cloud.config.OpenFeignConfig;
-import top.hanjjie.cloud.config.OpenFeignFallbackFactory;
+import top.hanjjie.cloud.service.fallback.HystrixConsumerServiceFallback;
 import top.hanjjie.cloud.utils.ResultBean;
 
 /**
  * Openfeign 业务类
+ * 配置类      OpenFeignConfig
+ * 服务降级工厂 HystrixConsumerServiceFallback
  */
 @Component
 @FeignClient(value = "${provider.hystrix-provider}",
-        configuration = OpenFeignConfig.class, fallbackFactory = OpenFeignFallbackFactory.class)
+        configuration = OpenFeignConfig.class, fallbackFactory = HystrixConsumerServiceFallback.class)
 @RequestMapping("/api/hystrix")
 public interface HystrixConsumerService {
 

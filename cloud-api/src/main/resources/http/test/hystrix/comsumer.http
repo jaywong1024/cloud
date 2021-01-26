@@ -1,0 +1,6 @@
+### 测试本机 hystrix comsumer 服务 timeout 接口
+GET http://localhost:80/api/hystrix/consumer/timeout
+Accept: */*
+Cache-Control: no-cache
+
+###
