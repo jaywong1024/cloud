@@ -64,7 +64,7 @@ public class HystrixProviderController {
      *
      * execution.isolation.thread.timeoutInMilliseconds 线程执行时间阈值
      * circuitBreakerFallback                           指定服务降级方法
-     * circuitBreaker.enable                            是否开启断路器功能
+     * circuitBreaker.enabled                           是否开启断路器功能
      * circuitBreaker.requestVolumeThreshold            设置滚动窗口中将使断路器跳闸的最小请求数量
      * circuitBreaker.sleepWindowInMilliseconds         断路器跳闸后，在此值的时间的内，Hystrix 会拒绝新的请求，只有过了这个时间断路器才会打开闸门
      * circuitBreaker.errorThresholdPercentage          设置失败百分比的阈值。如果失败比率超过这个值，则断路器跳闸并且进入 Fallback 逻辑
@@ -74,7 +74,7 @@ public class HystrixProviderController {
     @GetMapping("/circuit/breaker/{executeTime}")
     @HystrixCommand(fallbackMethod = "circuitBreakerFallback", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500"),
-            @HystrixProperty(name = "circuitBreaker.enable", value = "true"),
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "30")
@@ -85,6 +85,7 @@ public class HystrixProviderController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        log.info("测试服务熔断");
         return new ResultBean<>(new JSONObject().fluentPut("uuid", IdUtil.simpleUUID()));
     }
 
