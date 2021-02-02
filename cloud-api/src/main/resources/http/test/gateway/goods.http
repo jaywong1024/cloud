@@ -1,0 +1,19 @@
+### 通过 gateway 获取商品信息
+GET http://localhost:9527/api/goods/4?name=hanjjie
+Accept: */*
+Cache-Control: no-cache
+name: hanjjie
+Cookie: name=hanjjie
+
+### 将请求转发到 https://www.bilibili.com/
+GET http://localhost:9527/bilibili
+Accept: */*
+Cache-Control: no-cache
+
+### 将请求转发到 https://translate.google.cn/
+GET http://localhost:9527/translate
+Accept: */*
+Cache-Control: no-cache
+
+###
+

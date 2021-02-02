@@ -1,0 +1,45 @@
+# 端口
+server:
+  port: @cloud.gateway.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.cloud.gateway@
+  cloud:
+    gateway:
+      # 配置服务发现，开启定位器，让 Gateway 通过微服务名称进行路由
+      discovery:
+        locator:
+          enabled: true
+      # Gateway 路由配置
+      routes:
+        - id: goods_routh
+          uri: lb://@module.provider.goods@
+          predicates:
+            - After=2021-02-02T22:32:33.545+08:00[Asia/Shanghai]
+            - Before=2022-02-02T22:32:33.545+08:00[Asia/Shanghai]
+            - Between=2021-02-02T22:32:33.545+08:00[Asia/Shanghai],2022-02-02T22:32:33.545+08:00[Asia/Shanghai]
+            - Cookie=name,hanjjie
+            - Header=name,hanjjie
+            - Host=*
+            - Method=GET
+            - Path=/api/goods/**
+            - Query=name,hanjjie
+            - RemoteAddr=127.0.0.1
+            - Weight=groupName,9
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
+    service-url:
+      defaultZone: @eureka.zone@
+
+info:
+  app:
+    name: @module.cloud.gateway@
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@

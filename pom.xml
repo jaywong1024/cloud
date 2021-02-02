@@ -30,6 +30,7 @@
         <module>${module.hystrix.provider}</module>
         <module>${module.hystrix.consumer}</module>
         <module>${module.hystrix.dashboard}</module>
+        <module>${module.cloud.gateway}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -62,10 +63,15 @@
         <module.hystrix.dashboard>cloud-hystrix-dashboard</module.hystrix.dashboard>
         <hystrix.dashboard.port>8999</hystrix.dashboard.port>
 
-        <!-- zookeeper 配置 -->
+        <!-- Gateway 网关 -->
+        <module.cloud.gateway>cloud-gateway</module.cloud.gateway>
+        <cloud.gateway.port>9527</cloud.gateway.port>
+        
+
+        <!-- ZooKeeper 配置 -->
         <zk.port>2181</zk.port>
 
-        <!-- consul 配置 -->
+        <!-- Consul 配置 -->
         <consul.port>8500</consul.port>
 
         <!-- 依赖版本 -->
