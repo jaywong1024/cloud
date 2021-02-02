@@ -1,0 +1,2 @@
+server:
+  port: @hystrix.dashboard.port@

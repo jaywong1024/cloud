@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud-hystrix-consumer" />
+        <module name="cloud-hystrix-dashboard" />
         <module name="cloud-zk-consumer" />
         <module name="cloud-consumer-openfeign" />
         <module name="cloud-provider-goods" />
@@ -16,8 +16,9 @@
         <module name="cloud-consul-consumer" />
         <module name="cloud-hystrix-provider" />
         <module name="cloud-eureka-server" />
-        <module name="cloud-consul-provider" />
         <module name="cloud-zk-provider" />
+        <module name="cloud-hystrix-consumer" />
+        <module name="cloud-consul-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -34,6 +35,7 @@
       <module name="cloud-consumer-openfeign" options="-parameters" />
       <module name="cloud-eureka-server" options="-parameters" />
       <module name="cloud-hystrix-consumer" options="-parameters" />
+      <module name="cloud-hystrix-dashboard" options="-parameters" />
       <module name="cloud-hystrix-provider" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
       <module name="cloud-zk-consumer" options="-parameters" />

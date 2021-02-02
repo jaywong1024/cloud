@@ -3,4 +3,9 @@ GET http://localhost:8001/api/hystrix/timeout
 Accept: */*
 Cache-Control: no-cache
 
+### 测试本机 hystrix provider 服务 timeout 接口
+GET http://localhost:8001/api/hystrix/timeout
+Accept: */*
+Cache-Control: no-cache
+
 ###

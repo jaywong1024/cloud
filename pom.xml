@@ -29,6 +29,7 @@
         <module>${module.consumer.openfeign}</module>
         <module>${module.hystrix.provider}</module>
         <module>${module.hystrix.consumer}</module>
+        <module>${module.hystrix.dashboard}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -56,6 +57,10 @@
         <register.with.eureka>true</register.with.eureka>
         <fetch.registry>true</fetch.registry>
         <module.registry.eureka>cloud-eureka-server</module.registry.eureka>
+
+        <!-- Hystrix 图形界面 -->
+        <module.hystrix.dashboard>cloud-hystrix-dashboard</module.hystrix.dashboard>
+        <hystrix.dashboard.port>8999</hystrix.dashboard.port>
 
         <!-- zookeeper 配置 -->
         <zk.port>2181</zk.port>
