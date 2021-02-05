@@ -31,6 +31,7 @@
         <module>${module.hystrix.consumer}</module>
         <module>${module.hystrix.dashboard}</module>
         <module>${module.cloud.gateway}</module>
+        <module>${module.cloud.config}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -66,7 +67,10 @@
         <!-- Gateway 网关 -->
         <module.cloud.gateway>cloud-gateway</module.cloud.gateway>
         <cloud.gateway.port>9527</cloud.gateway.port>
-        
+
+        <!-- Config 服务配置 -->
+        <module.cloud.config>cloud-config-server</module.cloud.config>
+        <cloud.config.port>2333</cloud.config.port>
 
         <!-- ZooKeeper 配置 -->
         <zk.port>2181</zk.port>
