@@ -43,3 +43,7 @@ info:
   bulid:
     artifactId: @project.artifactId@
     version: @project.version@
+
+filter:
+  authorization:
+    error-msg: 居然有除了 hanjjie 以外的人访问，天呐，太可怕了，赶出去...

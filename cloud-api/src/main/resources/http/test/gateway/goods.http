@@ -3,6 +3,7 @@ GET http://localhost:9527/api/goods/4?name=hanjjie
 Accept: */*
 Cache-Control: no-cache
 name: hanjjie
+Authorization: hanjjie
 Cookie: name=hanjjie
 
 ### 将请求转发到 https://www.bilibili.com/

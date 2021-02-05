@@ -2,6 +2,7 @@ package top.hanjjie.cloud.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -19,6 +20,9 @@ import java.util.List;
 @Component
 public class AuthorizationFilter implements GlobalFilter, Ordered {
 
+    @Value("${filter.authorization.error-msg}")
+    private String errorMsg;
+
     private static final String AUTHORIZATION = "Authorization";
 
     @Override
@@ -27,7 +31,7 @@ public class AuthorizationFilter implements GlobalFilter, Ordered {
 //        只允许请求头中有 Authorization: hanjjie 的人访问
         if (authorizationList == null || StringUtils.isBlank(authorizationList.get(0))
                 || !authorizationList.get(0).equals("hanjjie")) {
-            log.warn("居然有除了 hanjjie 以外的人访问，天可怕了，赶出去...");
+            log.warn(errorMsg);
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             return exchange.getResponse().setComplete();
         }
