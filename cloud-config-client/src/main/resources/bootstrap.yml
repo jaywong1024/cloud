@@ -14,6 +14,7 @@ spring:
       profile: dev
       # 配置中心地址
       uri: http://localhost:2333
+
 # eureka 客户端配置
 eureka:
   client:
@@ -21,3 +22,15 @@ eureka:
     fetch-registry: @fetch.registry@
     service-url:
       defaultZone: @eureka.zone@
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"

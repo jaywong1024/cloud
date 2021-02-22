@@ -8,8 +8,11 @@ spring:
     config:
       server:
         git:
+          # 远程仓库地址
           uri: https://github.com/HanJJIE/cloud
+          # 默认分支
           default-label: master
+          # 配置文件路径
           search-paths:
             - /cloud-config-server/cfg
 # eureka 客户端配置

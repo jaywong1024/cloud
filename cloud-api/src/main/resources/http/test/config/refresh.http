@@ -1,0 +1,7 @@
+### 刷新 2334 工程的配置文件
+POST http://localhost:2334/actuator/refresh
+Accept: */*
+Cache-Control: no-cache
+
+###
+
