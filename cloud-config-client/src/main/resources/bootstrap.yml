@@ -1,0 +1,23 @@
+server:
+  port: @cloud.config.client.port@
+spring:
+  application:
+    name: @cloud.config.client@
+  cloud:
+    # 配置中心
+    config:
+      # 分支名称
+      label: master
+      # 配置文件名称
+      name: eureka
+      # 配置文件后缀（横杠"-"后面的，不是文件格式）
+      profile: dev
+      # 配置中心地址
+      uri: http://localhost:2333
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
+    service-url:
+      defaultZone: @eureka.zone@

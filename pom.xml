@@ -31,7 +31,8 @@
         <module>${module.hystrix.consumer}</module>
         <module>${module.hystrix.dashboard}</module>
         <module>${module.cloud.gateway}</module>
-        <module>${module.cloud.config}</module>
+        <module>${cloud.config.server}</module>
+        <module>${cloud.config.client}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -69,8 +70,12 @@
         <cloud.gateway.port>9527</cloud.gateway.port>
 
         <!-- Config 服务配置 -->
-        <module.cloud.config>cloud-config-server</module.cloud.config>
-        <cloud.config.port>2333</cloud.config.port>
+        <cloud.config.server>cloud-config-server</cloud.config.server>
+        <cloud.config.server.port>2333</cloud.config.server.port>
+
+        <!-- 测试 Config 服务 -->
+        <cloud.config.client>cloud-config-client</cloud.config.client>
+        <cloud.config.client.port>2334</cloud.config.client.port>
 
         <!-- ZooKeeper 配置 -->
         <zk.port>2181</zk.port>
@@ -112,7 +117,7 @@
             <id>vm-company</id>
             <properties>
                 <vm1.host>192.168.1.198</vm1.host>
-                <vm2.host>192.168.1.199</vm2.host>
+                <vm2.host>192.168.1.26</vm2.host>
             </properties>
         </profile>
         <profile>

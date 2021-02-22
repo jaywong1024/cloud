@@ -1,8 +1,8 @@
 server:
-  port: @cloud.config.port@
+  port: @cloud.config.server.port@
 spring:
   application:
-    name: @module.cloud.config@
+    name: @cloud.config.server@
   cloud:
     # 配置中心
     config:
