@@ -12,6 +12,11 @@
     <artifactId>${cloud.config.server}</artifactId>
 
     <dependencies>
+        <!-- bus -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
         <!-- config -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -29,5 +34,14 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

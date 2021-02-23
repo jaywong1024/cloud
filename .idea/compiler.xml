@@ -11,8 +11,8 @@
         <module name="cloud-consumer-openfeign" />
         <module name="cloud-config-server" />
         <module name="cloud-zk-consumer" />
+        <module name="cloud-consumer-client" />
         <module name="cloud-zk-provider" />
-        <module name="cloud-provider-goods" />
         <module name="cloud-eureka-server" />
         <module name="cloud-gateway" />
         <module name="cloud-consul-provider" />
@@ -21,7 +21,7 @@
         <module name="cloud-hystrix-dashboard" />
         <module name="cloud-api" />
         <module name="cloud-hystrix-consumer" />
-        <module name="cloud-consumer-client" />
+        <module name="cloud-provider-goods" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -73,6 +73,12 @@
         <cloud.config.server>cloud-config-server</cloud.config.server>
         <cloud.config.server.port>2333</cloud.config.server.port>
 
+        <!-- RabbitMQ 配置 -->
+        <rmq.host>${vm1.host}</rmq.host>
+        <rmq.port>5672</rmq.port>
+        <rmq.username>admin</rmq.username>
+        <rmq.password>admin</rmq.password>
+
         <!-- 测试 Config 服务 -->
         <cloud.config.client>cloud-config-client</cloud.config.client>
         <cloud.config.client.port>2334</cloud.config.client.port>
@@ -117,7 +123,7 @@
             <id>vm-company</id>
             <properties>
                 <vm1.host>192.168.1.198</vm1.host>
-                <vm2.host>192.168.1.26</vm2.host>
+                <vm2.host>192.168.1.28</vm2.host>
             </properties>
         </profile>
         <profile>

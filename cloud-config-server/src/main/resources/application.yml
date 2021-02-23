@@ -15,10 +15,24 @@ spring:
           # 配置文件路径
           search-paths:
             - /cloud-config-server/cfg
-# eureka 客户端配置
+  # RabbitMq 配置
+  rabbitmq:
+    host: @rmq.host@
+    port: @rmq.port@
+    username: @rmq.username@
+    password: @rmq.password@
+
+# Eureka 客户端配置
 eureka:
   client:
     register-with-eureka: @register.with.eureka@
     fetch-registry: @fetch.registry@
     service-url:
       defaultZone: @eureka.zone@
+
+# 暴露 bus 刷新配置端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"

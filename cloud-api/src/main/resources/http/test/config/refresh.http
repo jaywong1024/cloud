@@ -1,5 +1,10 @@
-### 刷新 2334 工程的配置文件
+### 刷新 2334 Config Client 工程的配置文件
 POST http://localhost:2334/actuator/refresh
+Accept: */*
+Cache-Control: no-cache
+
+### 请求 2333 Config Server 消息总线 bus-refresh 刷新所有 Config Client 的配置信息
+POST http://localhost:2333/actuator/bus-refresh
 Accept: */*
 Cache-Control: no-cache
 
