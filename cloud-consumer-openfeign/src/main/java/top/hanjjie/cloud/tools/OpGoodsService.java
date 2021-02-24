@@ -1,4 +1,4 @@
-package top.hanjjie.cloud.service;
+package top.hanjjie.cloud.tools;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package top.hanjjie.cloud.service;
+package top.hanjjie.cloud.tools;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.hanjjie.cloud.config.OpenFeignConfig;
-import top.hanjjie.cloud.service.fallback.HystrixConsumerServiceFallback;
+import top.hanjjie.cloud.tools.fallback.HystrixConsumerServiceFallback;
 import top.hanjjie.cloud.utils.ResultBean;
 
 /**

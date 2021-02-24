@@ -1,10 +1,10 @@
-package top.hanjjie.cloud.service.impl;
+package top.hanjjie.cloud.tools.impl;
 
 import org.springframework.stereotype.Service;
 import top.hanjjie.cloud.dao.GoodsDAO;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
-import top.hanjjie.cloud.service.GoodsService;
+import top.hanjjie.cloud.tools.GoodsService;
 
 import javax.annotation.Resource;
 

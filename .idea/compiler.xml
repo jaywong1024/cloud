@@ -7,22 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud-stream-rmq-provider" />
-        <module name="cloud-config-client" />
         <module name="cloud-consumer-openfeign" />
         <module name="cloud-config-server" />
         <module name="cloud-zk-consumer" />
+        <module name="cloud-hystrix-consumer" />
         <module name="cloud-zk-provider" />
-        <module name="cloud-provider-goods" />
+        <module name="cloud-hystrix-dashboard" />
         <module name="cloud-eureka-server" />
         <module name="cloud-gateway" />
         <module name="cloud-consul-provider" />
         <module name="cloud-consul-consumer" />
-        <module name="cloud-hystrix-provider" />
-        <module name="cloud-hystrix-dashboard" />
-        <module name="cloud-api" />
-        <module name="cloud-hystrix-consumer" />
         <module name="cloud-consumer-client" />
+        <module name="cloud-hystrix-provider" />
+        <module name="cloud-provider-goods" />
+        <module name="cloud-api" />
+        <module name="cloud-config-client" />
+        <module name="cloud-stream-rmq-consumer" />
+        <module name="cloud-stream-rmq-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -45,6 +46,7 @@
       <module name="cloud-hystrix-dashboard" options="-parameters" />
       <module name="cloud-hystrix-provider" options="-parameters" />
       <module name="cloud-provider-goods" options="-parameters" />
+      <module name="cloud-stream-rmq-consumer" options="-parameters" />
       <module name="cloud-stream-rmq-provider" options="-parameters" />
       <module name="cloud-zk-consumer" options="-parameters" />
       <module name="cloud-zk-provider" options="-parameters" />

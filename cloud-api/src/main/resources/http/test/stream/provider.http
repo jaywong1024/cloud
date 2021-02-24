@@ -1,0 +1,7 @@
+### 向 MQ 生产消息
+GET http://localhost:8001/msg/send?msg=我叫汉杰杰
+Accept: */*
+Cache-Control: no-cache
+
+###
+

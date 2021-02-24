@@ -1,11 +1,11 @@
-package top.hanjjie.cloud.service.fallback;
+package top.hanjjie.cloud.tools.fallback;
 
 import com.alibaba.fastjson.JSONObject;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import top.hanjjie.cloud.config.OpenFeignGlobalFallback;
-import top.hanjjie.cloud.service.HystrixConsumerService;
+import top.hanjjie.cloud.tools.HystrixConsumerService;
 import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import top.hanjjie.cloud.dto.GoodsDTO;
 import top.hanjjie.cloud.entities.Goods;
 import top.hanjjie.cloud.exception.ParamsException;
-import top.hanjjie.cloud.service.GoodsService;
+import top.hanjjie.cloud.tools.GoodsService;
 import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;

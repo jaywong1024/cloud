@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.hanjjie.cloud.service.HystrixConsumerService;
+import top.hanjjie.cloud.tools.HystrixConsumerService;
 import top.hanjjie.cloud.utils.ResultBean;
 
 import javax.annotation.Resource;
