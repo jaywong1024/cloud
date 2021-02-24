@@ -1,0 +1,53 @@
+server:
+  port: @provider.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.stream.rmq.provider@
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: @rmq.host@
+                port: @rmq.port@
+                username: @rmq.username@
+                password: @rmq.password@
+      bindings:
+        output:
+          destination: streamExchange
+          content-type: application/json
+          binder: defaultRabbit
+
+# eureka 客户端配置
+eureka:
+  client:
+    register-with-eureka: @register.with.eureka@
+    fetch-registry: @fetch.registry@
+    service-url:
+      defaultZone: @eureka.zone@
+
+info:
+  app:
+    name: @module.stream.rmq.provider@
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"
+

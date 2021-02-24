@@ -33,6 +33,7 @@
         <module>${module.cloud.gateway}</module>
         <module>${cloud.config.server}</module>
         <module>${cloud.config.client}</module>
+        <module>${module.stream.rmq.provider}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -46,6 +47,7 @@
         <module.zk.provider>cloud-zk-provider</module.zk.provider>
         <module.consul.provider>cloud-consul-provider</module.consul.provider>
         <module.hystrix.provider>cloud-hystrix-provider</module.hystrix.provider>
+        <module.stream.rmq.provider>cloud-stream-rmq-provider</module.stream.rmq.provider>
 
         <!-- 服务消费模块 -->
         <consumer.port>80</consumer.port>
@@ -123,7 +125,7 @@
             <id>vm-company</id>
             <properties>
                 <vm1.host>192.168.1.198</vm1.host>
-                <vm2.host>192.168.1.28</vm2.host>
+                <vm2.host>192.168.1.32</vm2.host>
             </properties>
         </profile>
         <profile>
