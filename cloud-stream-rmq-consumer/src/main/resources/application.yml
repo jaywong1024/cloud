@@ -21,6 +21,8 @@ spring:
           destination: cloud-stream-rmq
           # 用于指定消息的类型
           content-type: application/json
+          # 分组信息
+          group: rmq-comsumer
 
 # eureka 客户端配置
 eureka:

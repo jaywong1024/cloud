@@ -127,7 +127,7 @@
             <id>vm-company</id>
             <properties>
                 <vm1.host>192.168.1.198</vm1.host>
-                <vm2.host>192.168.1.32</vm2.host>
+                <vm2.host>192.168.1.54</vm2.host>
             </properties>
         </profile>
         <profile>
