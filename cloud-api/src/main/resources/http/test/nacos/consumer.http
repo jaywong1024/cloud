@@ -1,0 +1,6 @@
+### 向 Nacos 服务消费者发送请求测试接口
+GET http://localhost:80/nacos/consumer
+Accept: */*
+Cache-Control: no-cache
+
+###

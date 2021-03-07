@@ -35,6 +35,8 @@
         <module>${cloud.config.client}</module>
         <module>${module.stream.rmq.provider}</module>
         <module>${module.stream.rmq.consumer}</module>
+        <module>${module.alibaba.nacos.provider}</module>
+        <module>${module.alibaba.nacos.consumer}</module>
     </modules>
 
     <!-- 配置管理 -->
@@ -49,6 +51,7 @@
         <module.consul.provider>cloud-consul-provider</module.consul.provider>
         <module.hystrix.provider>cloud-hystrix-provider</module.hystrix.provider>
         <module.stream.rmq.provider>cloud-stream-rmq-provider</module.stream.rmq.provider>
+        <module.alibaba.nacos.provider>cloud-alibaba-nacos-provider</module.alibaba.nacos.provider>
 
         <!-- 服务消费模块 -->
         <consumer.port>80</consumer.port>
@@ -58,6 +61,7 @@
         <module.consumer.openfeign>cloud-consumer-openfeign</module.consumer.openfeign>
         <module.hystrix.consumer>cloud-hystrix-consumer</module.hystrix.consumer>
         <module.stream.rmq.consumer>cloud-stream-rmq-consumer</module.stream.rmq.consumer>
+        <module.alibaba.nacos.consumer>cloud-alibaba-nacos-consumer</module.alibaba.nacos.consumer>
 
         <!-- 注册中心 eureka -->
         <eureka.port>7001</eureka.port>
@@ -92,6 +96,10 @@
 
         <!-- Consul 配置 -->
         <consul.port>8500</consul.port>
+
+        <!-- Nacos 配置 -->
+        <nacos.host>@vm1.host@</nacos.host>
+        <nacos.port>8848</nacos.port>
 
         <!-- 依赖版本 -->
         <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>

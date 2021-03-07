@@ -1,0 +1,36 @@
+server:
+  port: @consumer.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.alibaba.nacos.consumer@
+  # 服务注册
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.host@:@nacos.port@
+
+info:
+  app:
+    name: @module.alibaba.nacos.consumer@
+  company:
+    name: @project.groupId@
+  bulid:
+    artifactId: @project.artifactId@
+    version: @project.version@
+
+# 应用管理
+management:
+  endpoint:
+    # 是否启用 shutdown 关闭应用
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      # 开启所有端点
+      exposure:
+        include: "*"
+
+# 消费服务
+provider:
+  nacos: http://@module.alibaba.nacos.provider@

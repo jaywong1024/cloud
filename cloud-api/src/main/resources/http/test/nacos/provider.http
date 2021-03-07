@@ -1,0 +1,6 @@
+### 向 Nacos 服务提供者发送请求测试接口
+GET http://localhost:8001/nacos/provider
+Accept: */*
+Cache-Control: no-cache
+
+###
