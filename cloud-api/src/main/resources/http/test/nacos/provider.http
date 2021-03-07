@@ -3,4 +3,9 @@ GET http://localhost:8001/nacos/provider
 Accept: */*
 Cache-Control: no-cache
 
+### 向 Nacos 服务提供者发送请求测试服务配置接口
+GET http://localhost:8001/nacos/config
+Accept: */*
+Cache-Control: no-cache
+
 ###

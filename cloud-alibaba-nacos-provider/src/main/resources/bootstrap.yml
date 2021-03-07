@@ -1,0 +1,14 @@
+server:
+  port: @provider.port@
+spring:
+  # 应用信息
+  application:
+    name: @module.alibaba.nacos.provider@
+  # 服务注册
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.host@:@nacos.port@
+      config:
+        server-addr: @nacos.host@:@nacos.port@
+        file-extension: yaml

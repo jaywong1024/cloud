@@ -1,15 +1,6 @@
-server:
-  port: @provider.port@
 spring:
-  # 应用信息
-  application:
-    name: @module.alibaba.nacos.provider@
-  # 服务注册
-  cloud:
-    nacos:
-      discovery:
-        server-addr: @nacos.host@:@nacos.port@
-
+  profiles:
+    active: dev
 info:
   app:
     name: @module.alibaba.nacos.provider@
@@ -30,4 +21,3 @@ management:
       # 开启所有端点
       exposure:
         include: "*"
-
