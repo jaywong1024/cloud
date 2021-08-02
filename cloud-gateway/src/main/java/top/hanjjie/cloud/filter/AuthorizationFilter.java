@@ -30,7 +30,7 @@ public class AuthorizationFilter implements GlobalFilter, Ordered {
         List<String> authorizationList = exchange.getRequest().getHeaders().get(AUTHORIZATION);
 //        只允许请求头中有 Authorization: hanjjie 的人访问
         if (authorizationList == null || StringUtils.isBlank(authorizationList.get(0))
-                || !authorizationList.get(0).equals("hanjjie")) {
+                || !"hanjjie".equals(authorizationList.get(0))) {
             log.warn(errorMsg);
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             return exchange.getResponse().setComplete();
