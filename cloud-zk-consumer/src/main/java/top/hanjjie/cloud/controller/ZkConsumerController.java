@@ -17,11 +17,11 @@ public class ZkConsumerController {
     private RestTemplate restTemplate;
 
     @Value("${provider.zk}")
-    private String providerZK;
+    private String providerZk;
 
     @GetMapping("/testZkConnecting")
     private ResultBean<String> testZkConnecting() {
-        return restTemplate.getForObject(providerZK + "/testZkConnecting", ResultBean.class);
+        return restTemplate.getForObject(providerZk + "/testZkConnecting", ResultBean.class);
     }
 
 }

@@ -31,7 +31,7 @@ public class CustomRule extends AbstractLoadBalancerRule {
         int reachableServersSize = reachableServers.size();
         log.info("服务总数：{}", reachableServersSize);
         // 2.获取实际调用服务的下标
-        int index = this.getIndexBySpinLockAndCAS(reachableServersSize);
+        int index = this.getIndexBySpinLockAndCas(reachableServersSize);
         log.info("实际调用的服务下标为：{}", index);
         // 3.返回服务
         Server server = reachableServers.get(index);
@@ -44,7 +44,7 @@ public class CustomRule extends AbstractLoadBalancerRule {
      * @param reachableServersSize 可用服务总数
      * @return 实际调用服务的下标
      */
-    private int getIndexBySpinLockAndCAS(int reachableServersSize) {
+    private int getIndexBySpinLockAndCas(int reachableServersSize) {
         int current, next;
         do {
             current = this.requestCount.get();
