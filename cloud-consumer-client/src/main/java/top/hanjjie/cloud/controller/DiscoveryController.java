@@ -24,7 +24,7 @@ public class DiscoveryController {
      */
     @GetMapping("/discovery")
     public ResultBean<Map<String, Object>> discovery() {
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>(discoveryClient.getServices().size());
         discoveryClient.getServices().forEach(s -> result.put(s, discoveryClient.getInstances(s)));
         return new ResultBean<>(result);
     }
