@@ -40,7 +40,9 @@ public class ClientController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) {
+            throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        }
         return restTemplate.postForObject(goods, goodsDTO, ResultBean.class);
     }
 
@@ -49,10 +51,14 @@ public class ClientController {
      */
     @PostMapping("/goodsForEntity")
     public ResultBean<GoodsDTO> goodsForEntity(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) {
+            throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        }
         ResponseEntity<ResultBean<GoodsDTO>> goodsForEntity = restTemplate.exchange(goods, HttpMethod.POST, new HttpEntity<>(goodsDTO, POST_HEADERS), new ParameterizedTypeReference<ResultBean<GoodsDTO>>() {});
         log.info("forEntity:{}", goodsForEntity);
-        if (goodsForEntity.getStatusCode().is2xxSuccessful()) return goodsForEntity.getBody();
+        if (goodsForEntity.getStatusCode().is2xxSuccessful()) {
+            return goodsForEntity.getBody();
+        }
         return new ResultBean<>("添加商品信息失败");
     }
 
@@ -71,7 +77,9 @@ public class ClientController {
     public ResultBean<Goods> goodsForEntity(@PathVariable("id") Long id) {
         ResponseEntity<ResultBean<Goods>> goodsForEntity = restTemplate.exchange(goods + Optional.ofNullable(id).orElseThrow(() -> new ParamsException("id is required")), HttpMethod.GET, new HttpEntity<>(null), new ParameterizedTypeReference<ResultBean<Goods>>() {});
         log.info("forEntity:{}", goodsForEntity);
-        if (goodsForEntity.getStatusCode().is2xxSuccessful()) return goodsForEntity.getBody();
+        if (goodsForEntity.getStatusCode().is2xxSuccessful()) {
+            return goodsForEntity.getBody();
+        }
         return new ResultBean<>("获取商品信息失败");
     }
 

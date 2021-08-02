@@ -19,7 +19,9 @@ public class MsgProviderController {
 
     @GetMapping("/send")
     public ResultBean<?> send(String msg) {
-        if (StringUtils.isBlank(msg)) throw new ParamsException("msg is required");
+        if (StringUtils.isBlank(msg)) {
+            throw new ParamsException("msg is required");
+        }
         msgSender.send(msg);
         return new ResultBean<>();
     }

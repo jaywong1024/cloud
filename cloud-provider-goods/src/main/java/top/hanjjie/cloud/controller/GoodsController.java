@@ -30,7 +30,9 @@ public class GoodsController {
      */
     @PostMapping("/goods")
     public ResultBean<GoodsDTO> goods(@RequestBody @Valid GoodsDTO goodsDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        if (bindingResult.hasErrors()) {
+            throw new ParamsException(Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        }
         return new ResultBean<>(goodsService.add(goodsDTO));
     }
 

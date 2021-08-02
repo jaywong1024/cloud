@@ -27,7 +27,9 @@ public class NacosConsumerController {
     @GetMapping("/consumer")
     public ResultBean<JSONObject> nacosConsumer() {
         ResponseEntity<ResultBean<JSONObject>> nacosProviderResponse = restTemplate.exchange(nacosProvider + "/nacos/provider", HttpMethod.GET, new HttpEntity<>(null), new ParameterizedTypeReference<ResultBean<JSONObject>>() {});
-        if (nacosProviderResponse.getStatusCode().is2xxSuccessful()) return nacosProviderResponse.getBody();
+        if (nacosProviderResponse.getStatusCode().is2xxSuccessful()) {
+            return nacosProviderResponse.getBody();
+        }
         return new ResultBean<>("访问服务提供者失败");
     }
 
